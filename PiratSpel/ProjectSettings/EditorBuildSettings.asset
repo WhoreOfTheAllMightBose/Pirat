@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Ludvig/Online Testing Scene.unity
+    guid: fb6abaac2bfcb474886b4bf1d17645a3
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Ludvig/Actual Map.unity
+    guid: 87a277a96df89a84eb51bbcaf1ee8536
   m_configObjects: {}
