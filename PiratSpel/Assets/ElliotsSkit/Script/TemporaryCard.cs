@@ -49,21 +49,70 @@ public class TemporaryCard : MonoBehaviour
             {
                 isOver = true;
 
-                if (hitD.transform.tag == "slot")
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if (hitD.transform.name == "slot1" && IsPlayer1)
+                    {
+
+                        isDown = true;
+                        print(hitD.transform.name);
+                        transform.position = hitD.transform.position;
+                        //     turnOfHighLigt();
+                    }
+                    else if (hitD.transform.name == "slot2" && !IsPlayer1)
                     {
                         isDown = true;
                         print(hitD.transform.name);
                         transform.position = hitD.transform.position;
-                        hitD.collider.GetComponent<slots>().isFree = false;
                     }
+                    else
+                        isOver = false;
+                }
+            }
+            else
+                isOver = false;
+        }
+    }
+
+    void turnOfHighLigt()
+    {
+        if (TurnBased.Player1Turn && IsPlayer1)
+        {
+
+            GameObject g = GameObject.FindGameObjectWithTag("Player1slots");
+
+
+                for (int i = 0; i < 4; i++)
+                {
+                //  g.GetComponentsInChildren<MeshRenderer>().
+                }
+        }
+        else if (!TurnBased.Player1Turn && !IsPlayer1)
+        {
+
+            IsSelected = !IsSelected;
+
+            GameObject g = GameObject.FindGameObjectWithTag("Player2slots");
+
+            if (IsSelected)
+            {
+                restartpos = transform.position;
+                for (int i = 0; i < 4; i++)
+                {
+                    g.transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                print(restartpos);
+                transform.position = restartpos;
+                for (int i = 0; i < 4; i++)
+                {
+                    g.transform.GetChild(i).gameObject.SetActive(false);
                 }
             }
         }
     }
-
-
     //private void OnTriggerEnter(Collider other)
     //{
     //    if(other.tag == "slot")
@@ -126,6 +175,7 @@ public class TemporaryCard : MonoBehaviour
                     }
                 }
             }
+
         }
     }
 

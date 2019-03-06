@@ -8,6 +8,9 @@ TagManager:
   - LookAtThis
   - Player1Cam
   - Player2Cam
+  - Player2slots
+  - Player1slots
+  - slot
   layers:
   - Default
   - TransparentFX
@@ -44,4 +47,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3768641975
+    locked: 0
+  - name: MiddleGround
+    uniqueID: 2684260987
+    locked: 0
+  - name: ForGround
+    uniqueID: 3211893241
+    locked: 0
+  - name: Cards
+    uniqueID: 667163917
+    locked: 0
+  - name: 
+    uniqueID: 2342172823
     locked: 0
