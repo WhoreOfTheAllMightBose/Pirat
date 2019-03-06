@@ -6,10 +6,12 @@ using UnityEngine.Networking;
 
 public class PlayerScript : NetworkBehaviour
 {
+    public Camera cam;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (isLocalPlayer) return;
+        cam.enabled = false;
     }
 
     // Update is called once per frame
@@ -17,7 +19,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (this.isLocalPlayer)
         {
-
+            
 
 
 
