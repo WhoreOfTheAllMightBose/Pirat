@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TurnBased : MonoBehaviour
 {
-
     public static TurnBased Instance { set; get; }
     public GameObject[] Players;
     public bool[,] allowedMoves { set; get; }
@@ -152,5 +151,8 @@ public class TurnBased : MonoBehaviour
     void OnMouseDown()
     {
         Player1Turn = !Player1Turn;
+        CoinScript.RoundCounter++;
+        CoinScript.TurnChange = true;
+        CoinScript.WhoTurn++;
     }
 }
