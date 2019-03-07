@@ -50,7 +50,7 @@ public class CameraScript : MonoBehaviour
         {
             camchange = false;
         }
-        if (camchange == false)
+        if (camchange == false && blackouttimer >= 1)
         {
             blackouttimer2 = 0;
             blackouttimer = 0;

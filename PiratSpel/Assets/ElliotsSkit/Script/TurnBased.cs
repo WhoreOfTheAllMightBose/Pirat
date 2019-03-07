@@ -38,19 +38,11 @@ public class TurnBased : MonoBehaviour
            // Debug.Log("Mouse is over GameObject. " + gameObject.name);
         }
     }
-    void OnMouseDown()
-    {
-        Player1Turn = !Player1Turn; // byter runda
-
-
-
-<<<<<<< HEAD
+    
     void OnMouseDown()
     {
         Player1Turn = !Player1Turn;
         CameraScript.camchange = true;
-=======
->>>>>>> 68076b2ec47b51ae20d3e2666c25fc02a60eebe7
         CoinScript.RoundCounter++;
         CoinScript.TurnChange = true;
         CoinScript.WhoTurn++;
