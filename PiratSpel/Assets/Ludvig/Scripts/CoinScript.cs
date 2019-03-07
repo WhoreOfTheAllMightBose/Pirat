@@ -12,8 +12,8 @@ public class CoinScript : MonoBehaviour
     public static int CoinAmountP2;
     public static int RoundCounter;
     public static int CoinGain;
-    public Text coinsp1;
-    public Text coinsp2;
+    public TextMesh coinsp1;
+    public TextMesh coinsp2;
     //public Text DebugingText;
     // Start is called before the first frame update
     void Start()

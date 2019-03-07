@@ -7,7 +7,7 @@ public class TempBaseCard : MonoBehaviour
 {
     protected int _Attack; //bas attack
     protected int _Hp; // bas hp
-    protected int _Cost; //bas kostnad
+    public int _Cost; //bas kostnad
     static bool attacking = true; // om den ska kunna attackera
     static int _amountOfDmg; // hur mycket skada fienden ska ta(och att bara en ska kunna nfalla åt gången)
 

@@ -8,7 +8,7 @@ public class TempBaseCard2 : MonoBehaviour
 
     protected int _Attack; //bas attack
     protected int _Hp; // bas hp
-    protected int _Cost; //bas kostnad
+    public int _Cost; //bas kostnad
     protected bool isPlayer1;
 
     bool growing = true; //så att den växer och minskar när man har tryckt på ett kort
