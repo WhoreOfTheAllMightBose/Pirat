@@ -390,6 +390,7 @@ MonoBehaviour:
   ad: 7
   hp: 1
   co: 3
+  spawnsound: {fileID: 8300000, guid: b347d20df65f9ab4490ab81fb716f9bb, type: 3}
 --- !u!1 &8396123887767574835
 GameObject:
   m_ObjectHideFlags: 0

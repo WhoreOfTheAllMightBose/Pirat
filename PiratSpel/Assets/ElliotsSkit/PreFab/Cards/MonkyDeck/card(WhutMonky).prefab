@@ -482,3 +482,4 @@ MonoBehaviour:
   ad: 3
   hp: 6
   co: 3
+  spawnsound: {fileID: 8300000, guid: 25858b5bec28f3445867cde901a3dfa1, type: 3}

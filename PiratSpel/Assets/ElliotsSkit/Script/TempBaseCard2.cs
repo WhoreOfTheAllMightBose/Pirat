@@ -10,19 +10,25 @@ public class TempBaseCard2 : MonoBehaviour
     protected int _Hp; // bas hp
     public int _Cost; //bas kostnad
     protected bool isPlayer1;
+    protected AudioClip _SpawnSound;
+    protected AudioClip _AttackSound;
+    protected AudioClip _DieSound;
+    AudioSource audioS = new AudioSource();
 
     bool growing = true; //så att den växer och minskar när man har tryckt på ett kort
     bool hasAttackt;
 
     public static int _ID; // vart id ligger på just nu
-    int thisID; // vad detta obj har för id
+    public int thisID; // vad detta obj har för id
     bool attacking;
+    bool playOnce = true;
     static int _amountOfDmg; // hur mycket skada fienden ska ta(och att bara en ska kunna anfalla åt gången)
     static int _amountOfDmgReseve;
     static GameObject cardThatTakeDmg;
 
     public virtual void Start()
     {
+        audioS = gameObject.AddComponent<AudioSource>();
         _ID++; // så att max id ökar
         thisID = _ID; // ger detta kort sitt id
         
@@ -89,6 +95,12 @@ public class TempBaseCard2 : MonoBehaviour
         if (hasAttackt && GetComponent<CardFuntion>().isDown)
         {
             GetComponent<SpriteRenderer>().material.color = Color.grey;
+            if(playOnce)
+            {
+                audioS.PlayOneShot(_SpawnSound);
+                playOnce = false;
+            }
+            
         }
         else if(!hasAttackt && GetComponent<CardFuntion>().isDown)
         {
@@ -133,7 +145,7 @@ public class TempBaseCard2 : MonoBehaviour
     {
         if(GetComponent<CardFuntion>().isDown)
         {
-          
+
 
             if (TurnBased.Player1Turn && isPlayer1 && !hasAttackt)
             {
@@ -204,7 +216,12 @@ public class TempBaseCard2 : MonoBehaviour
         print(_ID + " My Hp is: " + _Hp);
         _amountOfDmg = 0;
         if (_Hp <= 0)
+        {
+          
+
             Destroy(gameObject);
+        }
+
     }
 
     public virtual void StartingStats(int Ad, int Hp, int Co)

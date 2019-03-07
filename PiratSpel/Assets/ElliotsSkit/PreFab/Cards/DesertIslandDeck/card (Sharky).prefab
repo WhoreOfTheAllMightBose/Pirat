@@ -479,6 +479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Cost: 0
+  audioS: {fileID: 2273978163080598439, guid: 74e7d87f8bc797a4ea82d37b1b306ee5, type: 3}
   ad: 8
   hp: 6
   co: 5
+  spawnsound: {fileID: 8300000, guid: 2f6c3cd85a3d7e3469d27fc238d50e12, type: 3}

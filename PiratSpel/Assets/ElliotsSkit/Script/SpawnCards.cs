@@ -57,6 +57,17 @@ public class SpawnCards : MonoBehaviour
         {
             CoinScript.CoinAmountP1--;
             spawnpos = new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * CardsP1.Count, 0, -0.8f);
+            //for (int i = 0; i < CardsP1.Count; i++)
+            //{
+            //    if (i + 2 <= CardsP1.Count)
+            //    {
+            //        float temp = Vector3.Distance(CardsP1[i].transform.position, CardsP1[i + 1].transform.position);
+            //        if (temp < 74)
+            //        {
+            //            spawnpos = new Vector3(-10 + P1Playingcards[i].transform.localScale.x * 3.5f * i, 0, -0.8f);
+            //        }
+            //    }
+            //}
             g = randCard();
             CardsP1.Add(g);
             Instantiate(g, spawnpos, Quaternion.identity);
