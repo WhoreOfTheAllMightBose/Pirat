@@ -19,6 +19,7 @@ public class TempBaseCard2 : MonoBehaviour
     bool attacking;
     static int _amountOfDmg; // hur mycket skada fienden ska ta(och att bara en ska kunna anfalla åt gången)
     static int _amountOfDmgReseve;
+    static GameObject cardThatTakeDmg;
 
     public virtual void Start()
     {
@@ -132,8 +133,11 @@ public class TempBaseCard2 : MonoBehaviour
     {
         if(GetComponent<CardFuntion>().isDown)
         {
+          
+
             if (TurnBased.Player1Turn && isPlayer1 && !hasAttackt)
             {
+                cardThatTakeDmg = this.gameObject;
                 _amountOfDmg = _Attack;
                 hasAttackt = true;
                 attacking = true;
@@ -141,6 +145,7 @@ public class TempBaseCard2 : MonoBehaviour
 
             else if (!TurnBased.Player1Turn && !isPlayer1 && !hasAttackt)
             {
+                cardThatTakeDmg = this.gameObject;
                 _amountOfDmg = _Attack;
                 hasAttackt = true;
                 attacking = true;
@@ -148,12 +153,16 @@ public class TempBaseCard2 : MonoBehaviour
             else if(!TurnBased.Player1Turn && isPlayer1)
             {
                 TakeDamage(_amountOfDmg);
+                _amountOfDmg = _Attack;
+                cardThatTakeDmg.GetComponent<TempBaseCard2>().TakeDamage(_amountOfDmg);
                 _amountOfDmg = 0;
             }
+        
             else if (TurnBased.Player1Turn && !isPlayer1)
             {
                 TakeDamage(_amountOfDmg);
-                _amountOfDmgReseve = _amountOfDmg;
+                _amountOfDmg = _Attack;
+                cardThatTakeDmg.GetComponent<TempBaseCard2>().TakeDamage(_amountOfDmg);
                 _amountOfDmg = 0;
             }
         }
