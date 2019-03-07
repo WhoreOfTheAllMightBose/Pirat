@@ -12,11 +12,13 @@ public class CoinScript : MonoBehaviour
     public static int CoinAmountP2;
     public static int RoundCounter;
     public static int CoinGain;
-    public Text coins;
+    public Text coinsp1;
+    public Text coinsp2;
     //public Text DebugingText;
     // Start is called before the first frame update
     void Start()
     {
+        CoinGain = 1;
         CoinAmountP1 = 5;
         CoinAmountP2 = 5;
         WhoTurn = 0;
@@ -26,7 +28,8 @@ public class CoinScript : MonoBehaviour
     void FixedUpdate()
     {
 
-        coins.text = "" + CoinAmountP1;
+        coinsp1.text = "" + CoinAmountP1;
+        coinsp2.text = "" + CoinAmountP2;
 
         if (RoundCounter >= 6)
         {

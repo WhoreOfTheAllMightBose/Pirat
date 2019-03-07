@@ -404,10 +404,10 @@ RectTransform:
   m_Father: {fileID: 154421802}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -159, y: -131.5}
-  m_SizeDelta: {x: 89.17, y: 28.29}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 141, y: 36.5}
+  m_SizeDelta: {x: 89.17, y: 28.290009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &259097031
 MonoBehaviour:
@@ -758,7 +758,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1952794473
-  m_SortingLayer: 5
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e23bed6286a67e24cacac12871cd7e40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -797,7 +797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8f72ee12ff97342ac9dc7fc6913d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: {fileID: 866064246}
+  coinsp1: {fileID: 259097031}
+  coinsp2: {fileID: 866064246}
 --- !u!1 &768575299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1123,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1952794473
-  m_SortingLayer: 5
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e23bed6286a67e24cacac12871cd7e40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1161,7 +1162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8f72ee12ff97342ac9dc7fc6913d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: {fileID: 259097031}
+  coinsp1: {fileID: 259097031}
+  coinsp2: {fileID: 866064246}
 --- !u!1 &1673820622
 GameObject:
   m_ObjectHideFlags: 0

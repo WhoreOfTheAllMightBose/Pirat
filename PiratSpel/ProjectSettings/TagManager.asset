@@ -45,9 +45,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 3768641975
     locked: 0
@@ -62,4 +59,7 @@ TagManager:
     locked: 0
   - name: Coin
     uniqueID: 2342172823
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

@@ -18,6 +18,7 @@ public class TempBaseCard2 : MonoBehaviour
     int thisID; // vad detta obj har för id
     bool attacking;
     static int _amountOfDmg; // hur mycket skada fienden ska ta(och att bara en ska kunna anfalla åt gången)
+    static int _amountOfDmgReseve;
 
     public virtual void Start()
     {
@@ -37,6 +38,44 @@ public class TempBaseCard2 : MonoBehaviour
 
     public virtual void Update()
     {
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (GetComponent<CardFuntion>().isDown)
+            {
+                if (i == 0)
+                {
+
+                    transform.GetChild(0).GetComponentInChildren<TextMesh>().text = _Hp.ToString();
+                }
+                if (i == 1)
+                {
+                    transform.GetChild(1).GetComponentInChildren<TextMesh>().text = _Attack.ToString();
+                }
+                if(i == 2)
+                {
+                    transform.GetChild(2).gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                if (i == 0)
+                {
+
+                    transform.GetChild(0).GetComponentInChildren<TextMesh>().text = _Hp.ToString();
+                }
+                if (i == 1)
+                {
+                    transform.GetChild(1).GetComponentInChildren<TextMesh>().text = _Attack.ToString();
+                }
+                if (i == 2)
+                {
+                    transform.GetChild(2).GetComponentInChildren<TextMesh>().text = _Cost.ToString();
+                }
+
+            }
+        }
+
         if (_amountOfDmg > 0 && attacking)
             grow();
         else
@@ -106,9 +145,15 @@ public class TempBaseCard2 : MonoBehaviour
                 hasAttackt = true;
                 attacking = true;
             }
-            else
+            else if(!TurnBased.Player1Turn && isPlayer1)
             {
                 TakeDamage(_amountOfDmg);
+                _amountOfDmg = 0;
+            }
+            else if (TurnBased.Player1Turn && !isPlayer1)
+            {
+                TakeDamage(_amountOfDmg);
+                _amountOfDmgReseve = _amountOfDmg;
                 _amountOfDmg = 0;
             }
         }
