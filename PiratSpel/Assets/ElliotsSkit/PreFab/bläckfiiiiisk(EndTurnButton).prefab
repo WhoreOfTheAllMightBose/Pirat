@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD:PiratSpel/Assets/ElliotsSkit/PreFab/bläckfiiiiisk(EndTurnButton).prefab
 --- !u!1 &1299989303273061387
+=======
+--- !u!1 &6313922701745126218
+>>>>>>> 85fad4269cad110991183299a388dd88630d0440:PiratSpel/Assets/ElliotsSkit/PreFab/card.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +12,17 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:PiratSpel/Assets/ElliotsSkit/PreFab/bläckfiiiiisk(EndTurnButton).prefab
   - component: {fileID: 1299989303273061398}
   - component: {fileID: 1299989303273061385}
   - component: {fileID: 1299989303273061384}
   - component: {fileID: 1299989303273061399}
+=======
+  - component: {fileID: 6313922701745126230}
+  - component: {fileID: 6313922701745126231}
+  - component: {fileID: 6313922701745126228}
+  - component: {fileID: 6313922701745126229}
+>>>>>>> 85fad4269cad110991183299a388dd88630d0440:PiratSpel/Assets/ElliotsSkit/PreFab/card.prefab
   m_Layer: 0
   m_Name: "bl\xE4ckfiiiiisk(EndTurnButton)"
   m_TagString: Untagged
@@ -19,12 +30,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:PiratSpel/Assets/ElliotsSkit/PreFab/bläckfiiiiisk(EndTurnButton).prefab
 --- !u!4 &1299989303273061398
+=======
+--- !u!4 &6313922701745126230
+>>>>>>> 85fad4269cad110991183299a388dd88630d0440:PiratSpel/Assets/ElliotsSkit/PreFab/card.prefab
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:PiratSpel/Assets/ElliotsSkit/PreFab/bläckfiiiiisk(EndTurnButton).prefab
   m_GameObject: {fileID: 1299989303273061387}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 23.1, y: -0, z: 9.9}
@@ -34,12 +50,27 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &1299989303273061385
+=======
+  m_GameObject: {fileID: 6313922701745126218}
+  m_LocalRotation: {x: 0.3239026, y: -0, z: -0, w: 0.94609046}
+  m_LocalPosition: {x: 9.72, y: 4.29, z: -12.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 37.798, y: 0, z: 0}
+--- !u!212 &6313922701745126231
+>>>>>>> 85fad4269cad110991183299a388dd88630d0440:PiratSpel/Assets/ElliotsSkit/PreFab/card.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:PiratSpel/Assets/ElliotsSkit/PreFab/bläckfiiiiisk(EndTurnButton).prefab
   m_GameObject: {fileID: 1299989303273061387}
+=======
+  m_GameObject: {fileID: 6313922701745126218}
+>>>>>>> 85fad4269cad110991183299a388dd88630d0440:PiratSpel/Assets/ElliotsSkit/PreFab/card.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -81,25 +112,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD:PiratSpel/Assets/ElliotsSkit/PreFab/bläckfiiiiisk(EndTurnButton).prefab
 --- !u!65 &1299989303273061384
+=======
+--- !u!65 &6313922701745126228
+>>>>>>> 85fad4269cad110991183299a388dd88630d0440:PiratSpel/Assets/ElliotsSkit/PreFab/card.prefab
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:PiratSpel/Assets/ElliotsSkit/PreFab/bläckfiiiiisk(EndTurnButton).prefab
   m_GameObject: {fileID: 1299989303273061387}
+=======
+  m_GameObject: {fileID: 6313922701745126218}
+>>>>>>> 85fad4269cad110991183299a388dd88630d0440:PiratSpel/Assets/ElliotsSkit/PreFab/card.prefab
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD:PiratSpel/Assets/ElliotsSkit/PreFab/bläckfiiiiisk(EndTurnButton).prefab
   m_Size: {x: 7, y: 3, z: 0.1}
   m_Center: {x: -1, y: 0, z: 0}
 --- !u!114 &1299989303273061399
+=======
+  m_Size: {x: 5.09, y: 5.67, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6313922701745126229
+>>>>>>> 85fad4269cad110991183299a388dd88630d0440:PiratSpel/Assets/ElliotsSkit/PreFab/card.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:PiratSpel/Assets/ElliotsSkit/PreFab/bläckfiiiiisk(EndTurnButton).prefab
   m_GameObject: {fileID: 1299989303273061387}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -109,3 +155,17 @@ MonoBehaviour:
   Players:
   - {fileID: 0}
   - {fileID: 0}
+=======
+  m_GameObject: {fileID: 6313922701745126218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc94347769d5f30459bb478e7721a8ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsSelected: 0
+  tempCard: {fileID: 6313922701745126218}
+  PossibleMoves: []
+  Cameras:
+  - {fileID: 0}
+  IsPlayer1: 1
+>>>>>>> 85fad4269cad110991183299a388dd88630d0440:PiratSpel/Assets/ElliotsSkit/PreFab/card.prefab
