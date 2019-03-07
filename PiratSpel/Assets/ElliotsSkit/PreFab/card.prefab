@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4738769863962686677}
   - component: {fileID: 2483438603724276330}
   - component: {fileID: 5662068332706731261}
-  - component: {fileID: 5010263727348870041}
+  - component: {fileID: 3227081692298395937}
+  - component: {fileID: 865628971451176875}
   m_Layer: 0
   m_Name: card
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6858424453610167914}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 9.824218, y: 31.528004, z: -18.918438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &2483438603724276330
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -67,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 667163917
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e143dd988374f0a49be95b42c4668f54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,7 +95,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.09, y: 5.67, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5010263727348870041
+--- !u!114 &3227081692298395937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,12 +104,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 6858424453610167914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc94347769d5f30459bb478e7721a8ff, type: 3}
+  m_Script: {fileID: 11500000, guid: c6d69bc3af2be104181360cf25f6dfa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsSelected: 0
+<<<<<<< HEAD
   tempCard: {fileID: 6858424453610167914}
   PossibleMoves: []
   Cameras:
   - {fileID: 0}
   IsPlayer1: 0
+=======
+  cams:
+  - {fileID: 0}
+  - {fileID: 0}
+  IsPlayer1: 1
+  isDown: 0
+--- !u!114 &865628971451176875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858424453610167914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c54b0e062e6d8a4781b0c4282bf995a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ad: 5
+  hp: 1
+  co: 0
+>>>>>>> 68076b2ec47b51ae20d3e2666c25fc02a60eebe7

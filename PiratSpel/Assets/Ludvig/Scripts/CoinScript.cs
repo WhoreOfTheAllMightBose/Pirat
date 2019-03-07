@@ -12,8 +12,13 @@ public class CoinScript : MonoBehaviour
     public static int CoinAmountP2;
     public static int RoundCounter;
     public static int CoinGain;
+<<<<<<< HEAD
     public static int debugg;
     public Text DebugingText;
+=======
+    public Text coins;
+    //public Text DebugingText;
+>>>>>>> 68076b2ec47b51ae20d3e2666c25fc02a60eebe7
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +31,16 @@ public class CoinScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+<<<<<<< HEAD
         DebugingText.text = "" + CoinAmountP1;
         DebugingText.text = "" + CoinAmountP2;
         if (RoundCounter == 6)
+=======
+
+        coins.text = "" + CoinAmountP1;
+
+        if (RoundCounter >= 6)
+>>>>>>> 68076b2ec47b51ae20d3e2666c25fc02a60eebe7
         {
             CoinGain++;
             RoundCounter = 0;
@@ -43,6 +55,7 @@ public class CoinScript : MonoBehaviour
         {
             CoinAmountP2 += CoinGain;
             TurnChange = false;
+<<<<<<< HEAD
             WhoTurn = 0;
         }
         if (WhoTurn == 2)
@@ -55,5 +68,9 @@ public class CoinScript : MonoBehaviour
 
 
         Debug.Log("" + debugg);
+=======
+        }
+
+>>>>>>> 68076b2ec47b51ae20d3e2666c25fc02a60eebe7
     }
 }

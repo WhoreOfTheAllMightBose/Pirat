@@ -284,6 +284,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1179339107211238873}
   - component: {fileID: 1179339107211238872}
+  - component: {fileID: 7547668890014874459}
+  - component: {fileID: 6933676722998101133}
   m_Layer: 0
   m_Name: kista (1)
   m_TagString: Untagged
@@ -353,6 +355,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7547668890014874459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179339107211238878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c23093869161554598d9d24d31ef60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1Playingcards:
+  - {fileID: 6858424453610167914, guid: b958ddc4efb7c914e8c4a89baba350c1, type: 3}
+  P2Playingcards:
+  - {fileID: 6858424453610167914, guid: b958ddc4efb7c914e8c4a89baba350c1, type: 3}
+--- !u!114 &6933676722998101133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179339107211238878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8f72ee12ff97342ac9dc7fc6913d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1179339107273640247
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +393,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1179339107273640241}
   - component: {fileID: 1179339107273640246}
+  - component: {fileID: 3484941845117082847}
+  - component: {fileID: 5069528123629421328}
   m_Layer: 0
   m_Name: kista
   m_TagString: Untagged
@@ -432,6 +464,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3484941845117082847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179339107273640247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c23093869161554598d9d24d31ef60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1Playingcards:
+  - {fileID: 6858424453610167914, guid: b958ddc4efb7c914e8c4a89baba350c1, type: 3}
+  P2Playingcards:
+  - {fileID: 6858424453610167914, guid: b958ddc4efb7c914e8c4a89baba350c1, type: 3}
+--- !u!114 &5069528123629421328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179339107273640247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8f72ee12ff97342ac9dc7fc6913d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1179339107339554568
 GameObject:
   m_ObjectHideFlags: 0
