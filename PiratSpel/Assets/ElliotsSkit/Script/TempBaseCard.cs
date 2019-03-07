@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
 public class TempBaseCard : MonoBehaviour
@@ -15,7 +16,7 @@ public class TempBaseCard : MonoBehaviour
     static int attackersID; //ser vem som attackerar
     bool growing = true; //så att den växer och minskar när man har tryckt på ett kort
     bool startGrowing; // när den ska börja växa
-    public bool hasattackt; // så att ett kort bara kan attakera 1gng
+    public bool hasattackt = false; // så att ett kort bara kan attakera 1gng
     public bool isPlayer1; // om kortet tillhör spelare 1
     // Start is called before the first frame update
     public virtual void Start()
@@ -34,7 +35,8 @@ public class TempBaseCard : MonoBehaviour
     }
     public virtual void Update()
     {
-        if (startGrowing) // så att kortet börjar växa
+
+        if (startGrowing && !hasattackt) // så att kortet börjar växa
         {
             grow();
         }
@@ -67,7 +69,7 @@ public class TempBaseCard : MonoBehaviour
             if (attacking && GetComponent<CardFuntion>().isDown && !hasattackt)
             {
                 attacking = !attacking;
-                hasattackt = !hasattackt;
+               // hasattackt = false;
                 _amountOfDmg = _Attack;
                 attackersID = ID;
                 startGrowing = true;
@@ -78,7 +80,7 @@ public class TempBaseCard : MonoBehaviour
             if (attacking && GetComponent<CardFuntion>().isDown && !hasattackt)
             {
                 attacking = !attacking;
-                hasattackt = !hasattackt;
+              //  hasattackt = false;
                 _amountOfDmg = _Attack;
                 attackersID = ID;
                 startGrowing = true;
@@ -89,8 +91,30 @@ public class TempBaseCard : MonoBehaviour
         {
             if (!attacking && GetComponent<CardFuntion>().isDown)
             {
+                if (TurnBased.Player1Turn)
+                {
+                    for (int i = 0; i < ID; i++)
+                    {
+                        if (isPlayer1)
+                        {
+                            hasattackt = false;
+                        }
+                    }
+                }
+                if (!TurnBased.Player1Turn)
+                {
+                    for (int i = 0; i < ID; i++)
+                    {
+                        if (!isPlayer1)
+                        {
+                            hasattackt = false;
+                        }
+                    }
+                }
+
                 attacking = !attacking;
                 startGrowing = false;
+                hasattackt = true;
                 transform.localScale = new Vector3(1, 1, 1);
                 attackersID = -1;
                 TakeDamage(_amountOfDmg);

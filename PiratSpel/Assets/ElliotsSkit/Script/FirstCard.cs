@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
-public class FirstCard : TempBaseCard
+public class FirstCard : TempBaseCard2
 {
     public int ad;
     public int hp;

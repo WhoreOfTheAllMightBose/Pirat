@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
 public class TurnBased : MonoBehaviour
@@ -40,27 +41,8 @@ public class TurnBased : MonoBehaviour
     void OnMouseDown()
     {
         Player1Turn = !Player1Turn; // byter runda
-        
-        if(Player1Turn)
-        {
-            for (int i = 0; i < TempBaseCard.ID ; i++)
-            {
-                if(GetComponent<TempBaseCard>().isPlayer1)
-                {
-                    GetComponent<TempBaseCard>().hasattackt = false;
-                }
-            }
-        }
-        if (!Player1Turn)
-        {
-            for (int i = 0; i < TempBaseCard.ID; i++)
-            {
-                if (!GetComponent<TempBaseCard>().isPlayer1)
-                {
-                    GetComponent<TempBaseCard>().hasattackt = false;
-                }
-            }
-        }
+
+
 
         CoinScript.RoundCounter++;
         CoinScript.TurnChange = true;

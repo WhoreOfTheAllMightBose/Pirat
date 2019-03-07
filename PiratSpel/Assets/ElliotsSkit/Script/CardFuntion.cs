@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
 public class CardFuntion : MonoBehaviour
@@ -7,7 +8,6 @@ public class CardFuntion : MonoBehaviour
     public bool IsSelected; // ifall du har tryckt på kortet(innan du lägger ut det)
 
     Vector3 restartpos; // ifall du trycker utanför kortrutorna ska dem komma tillbaka till denna position
-
     public bool IsPlayer1 = true; // ifall detta kort tillhör spelare 1
     public bool isDown = false; // om du har lagt ner kortet
     bool isOver; // om kortet är över en ruta den kan bli plaserad på
@@ -33,19 +33,42 @@ public class CardFuntion : MonoBehaviour
         if (IsSelected) // ifall du har valt vilket kort du ska hålla 
         {
             Vector3 mouse = Input.mousePosition; // få musens position
-            Ray castPoint = Camera.main.ScreenPointToRay(mouse); // från kamerans vinkel ska musens positions utgå ifrån inte ifråns världen. Annars ger den för stora värden
+            Ray castPoint;
             RaycastHit hit; // om du träffar ett kort du ska välja
-            RaycastHit hitD; // om du träffar en position under kortet
-            if (!isDown)
+            if (TurnBased.Player1Turn && IsPlayer1)
             {
-                if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+                castPoint = Camera.main.ScreenPointToRay(mouse);
+                if (!isDown)
                 {
-                    // print(Input.mousePosition);
-                    //print(hit.transform.name);
-                    Vector3 pos = new Vector3(hit.point.x, 1, hit.point.z);
-                    transform.position = pos; // så att kortet du håller har samma position som musen
+                    if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+                    {
+                        // print(Input.mousePosition);
+                        //print(hit.transform.name);
+                        Vector3 pos = new Vector3(hit.point.x, 1, hit.point.z);
+                        transform.position = pos; // så att kortet du håller har samma position som musen
+                    }
                 }
+                // castPoint = Camera.main.ScreenPointToRay(mouse); // från kamerans vinkel ska musens positions utgå ifrån inte ifråns världen. Annars ger den för stora värden
             }
+            else if(!TurnBased.Player1Turn && !IsPlayer1)
+            {
+                castPoint = Camera.main.ScreenPointToRay(mouse);
+                if (!isDown)
+                {
+                    if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+                    {
+                        // print(Input.mousePosition);
+                        //print(hit.transform.name);
+                        Vector3 pos = new Vector3(hit.point.x, 1, hit.point.z);
+                        transform.position = pos; // så att kortet du håller har samma position som musen
+                    }
+                }
+                //  castPoint = Camera.main.ScreenPointToRay(mouse); // från kamerans vinkel ska musens positions utgå ifrån inte ifråns världen. Annars ger den för stora värden
+            }
+            
+          
+            RaycastHit hitD; // om du träffar en position under kortet
+           
             if (Physics.Raycast(transform.position, Vector3.down, out hitD))
             {
                 isOver = true; // om du är över en plats du kan lägga kortet

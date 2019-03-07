@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class CoinScript : NetworkBehaviour
+public class CoinScript : MonoBehaviour
 {
     public static bool TurnChange;
     public static int WhoTurn;
@@ -12,7 +12,8 @@ public class CoinScript : NetworkBehaviour
     public static int CoinAmountP2;
     public static int RoundCounter;
     public static int CoinGain;
-    public Text DebugingText;
+    public Text coins;
+    //public Text DebugingText;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class CoinScript : NetworkBehaviour
     void FixedUpdate()
     {
 
-        DebugingText.text = "" + CoinAmountP1;
+        coins.text = "" + CoinAmountP1;
 
         if (RoundCounter >= 6)
         {
@@ -40,14 +41,13 @@ public class CoinScript : NetworkBehaviour
         if (TurnChange == true && WhoTurn == 0)
         {
             CoinAmountP1 += CoinGain;
+            TurnChange = false;
         }
         if (TurnChange == true && WhoTurn == 1)
         {
             CoinAmountP2 += CoinGain;
+            TurnChange = false;
         }
-
-
-
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
 public class SpawnCards : MonoBehaviour
@@ -37,9 +38,10 @@ public class SpawnCards : MonoBehaviour
     {
         //print(CardsP1.Count);
         //print(CardsP2.Count);
-        if (TurnBased.Player1Turn)
+        if (TurnBased.Player1Turn && CoinScript.CoinAmountP1 > 0)
         {
             GameObject g;
+            CoinScript.CoinAmountP1--;
                 spawnpos = new Vector3(-10 + P1Playingcards[0].transform.localScale.x  *3* CardsP1.Count, 0, -0.8f);
                 g = P1Playingcards[0];
                 CardsP1.Add(g);
@@ -48,9 +50,10 @@ public class SpawnCards : MonoBehaviour
          //   GetComponent<TemporaryCard>().CardsP1.Add(g);
         }
 
-        if (!TurnBased.Player1Turn)
+        if (!TurnBased.Player1Turn && CoinScript.CoinAmountP2 > 0)
         {
             GameObject g;
+            CoinScript.CoinAmountP2--;
                 spawnpos = new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3 * CardsP2.Count, 0, 22);
                 g = P2Playingcards[0];
                 CardsP2.Add(g);
