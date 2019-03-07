@@ -151,8 +151,11 @@ public class TurnBased : MonoBehaviour
     void OnMouseDown()
     {
         Player1Turn = !Player1Turn;
+        CameraScript.camchange = true;
         CoinScript.RoundCounter++;
         CoinScript.TurnChange = true;
         CoinScript.WhoTurn++;
+        CoinScript.debugg++;
+        
     }
 }

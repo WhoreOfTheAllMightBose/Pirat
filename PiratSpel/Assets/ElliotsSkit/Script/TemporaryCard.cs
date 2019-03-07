@@ -8,7 +8,7 @@ public class TemporaryCard : MonoBehaviour
     public GameObject tempCard;
     public Vector3[] PossibleMoves;
     Vector3 restartpos;
-
+    public Camera[] Cameras;
 
     public int CurrentX { set; get; }
     public int CurrentY { set; get; }
@@ -32,16 +32,18 @@ public class TemporaryCard : MonoBehaviour
             //transform.position = Camera.main.WorldToScreenPoint(mousepos) * Time.deltaTime;
             // transform.position = Vector3.Lerp(transform.position, mousepos, 1 * Time.deltaTime);
             Vector3 mouse = Input.mousePosition;
-            Ray castPoint = Camera.main.ScreenPointToRay(mouse);
+            // Ray castPoint = Camera.main.ScreenPointToRay(mouse);
+            Ray castPoint = Cameras[0].ScreenPointToRay(mouse);
             RaycastHit hit;
             RaycastHit hitD;
             if (!isDown)
             {
                 if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
                 {
-                    // print(Input.mousePosition);
+                     print(Input.mousePosition);
                     print(hit.transform.name);
-                    Vector3 pos = new Vector3(hit.point.x, 1, hit.point.z);
+                    Vector3 pos = new Vector3(hit.point.x, 4, hit.point.z);
+                   // Vector3 pos = hit.point;
                     transform.position = pos;
                 }
             }

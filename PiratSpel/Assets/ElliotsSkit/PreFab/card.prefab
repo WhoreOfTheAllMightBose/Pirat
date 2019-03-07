@@ -109,4 +109,6 @@ MonoBehaviour:
   IsSelected: 0
   tempCard: {fileID: 6858424453610167914}
   PossibleMoves: []
+  Cameras:
+  - {fileID: 0}
   IsPlayer1: 0
