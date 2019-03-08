@@ -79,7 +79,24 @@ public class CardFuntion : MonoBehaviour
                     {
                         isDown = true; // så att du sätter ner kortet och inte kan ta upp det igen
 
-                         //   SpawnCards.CardsP1.Remove(SpawnCards.CardsP1[GetComponent<TempBaseCard2>().thisID]);
+                      //  for (int i = 0; i < SpawnCards.CardsP1.Count; i++)
+                      //  {
+                      //      //SpawnCards.CardsP1[i].transform.position = new Vector3(-10 + 3.5f * i, 0, -0.8f);
+                      //      print(" kort namn före  " + SpawnCards.CardsP1[i].gameObject.name);
+                      //  }
+
+                      //  print("namn på kort vi tar bort = " + gameObject.name);
+                      //  print(SpawnCards.CardsP1.IndexOf(gameObject));
+                      ////  SpawnCards.CardsP1.RemoveAll(card => card.name == gameObject.name);
+                      //  SpawnCards.CardsP1.Remove(gameObject);
+                      //  print("lista läng " + SpawnCards.CardsP1.Count);
+                      //  for (int i = 0; i < SpawnCards.CardsP1.Count; i++)
+                      //  {
+                      //      SpawnCards.CardsP1[i].transform.position = new Vector3(-10 + 3.5f * i, 0, -0.8f);
+                      //      print(" kort namn efter " + SpawnCards.CardsP1[i].gameObject.name);
+                      //  }
+
+                        //  FindObjectOfType<SpawnCards>().RefreshCardPos();
 
                         CoinScript.CoinAmountP1 -= GetComponent<TempBaseCard2>()._Cost;
 
@@ -90,8 +107,15 @@ public class CardFuntion : MonoBehaviour
                     else if (hitD.transform.name == "slot2" && !IsPlayer1  && CoinScript.CoinAmountP2 - GetComponent<TempBaseCard2>()._Cost >= 0) // kollar så att detta kort tillhör spelare 2 och se till att yta nockdå tillhör spelare 2
                     {
                         isDown = true;// så att du sätter ner kortet och inte kan ta upp det igen
+                      //  SpawnCards.CardsP2.Remove(SpawnCards.CardsP2[GetComponent<TempBaseCard2>().thisID]);
 
-                     //  SpawnCards.CardsP2.Remove(SpawnCards.CardsP2[GetComponent<TempBaseCard2>().thisID]);
+                        //for (int i = 0; i < SpawnCards.CardsP2.Count; i++)
+                        //{
+                        //    SpawnCards.CardsP2[i].transform.position = new Vector3(-10 + 3.5f * i, 0, -0.8f);
+                        //  //  print(i + " " + SpawnCards.CardsP[i].transform.position);
+                        //}
+
+                       // FindObjectOfType<SpawnCards>().RefreshCardPos();
 
                         CoinScript.CoinAmountP2 -= GetComponent<TempBaseCard2>()._Cost;
                         //  print(hitD.transform.name);

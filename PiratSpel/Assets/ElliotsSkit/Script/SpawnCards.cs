@@ -18,13 +18,13 @@ public class SpawnCards : MonoBehaviour
         CardsP1 = new List<GameObject>();
         CardsP2 = new List<GameObject>();
 
-        spawnpos = new Vector3(-10, 0, -0.8f);
-        g = P1Playingcards[0];
-        CardsP1.Add(g);
+        //spawnpos = new Vector3(-10, 0, -0.8f);
+        ////g = P1Playingcards[0];
+        ////CardsP1.Add(g);
 
-        spawnpos = new Vector3(-10, 0, 22);
-        g = P2Playingcards[0];
-        CardsP2.Add(g);
+        //spawnpos = new Vector3(-10, 0, 22);
+        //g = P2Playingcards[0];
+        //CardsP2.Add(g);
        // Instantiate(g);
     }
 
@@ -46,6 +46,27 @@ public class SpawnCards : MonoBehaviour
         {
             rand = Random.Range(0, P2Playingcards.Length);
             return P2Playingcards[rand];
+        }
+    }
+
+    public void RefreshCardPos()
+    {
+        if (TurnBased.Player1Turn)
+        {
+            for (int i = 0; i < CardsP1.Count; i++)
+            {
+                CardsP1[i].transform.position = new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * CardsP1.Count, 0, -0.8f);
+                print(CardsP1[i].transform.position);
+            }
+        }
+
+        if (!TurnBased.Player1Turn)
+        {
+            for (int i = 0; i < CardsP2.Count; i++)
+            {
+                CardsP2[i].transform.position = new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * CardsP2.Count, 0, 22);
+                print(CardsP2[i].transform.position);
+            }
         }
     }
 

@@ -6,18 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class HeroScript : MonoBehaviour
 {
-    public int Hero1Health;
-    public int Hero2Health;
+    public static int Hero1Health;
+    public static int Hero2Health;
     public Camera PlayerCamera;
     public Camera TurnWaitCamera;
     public Camera EndingCamera;
     public Text text;
     public Text text2;
+    public TextMesh P1Text;
+    public TextMesh P2Text;
     public int RestartingGame;
     public int countdown;
     
     void Start()
     {
+        Hero1Health = 20;
+        Hero2Health = 15;
         EndingCamera.enabled = false;
     }
 
@@ -47,9 +51,15 @@ public class HeroScript : MonoBehaviour
             RestartingGame = 0;
         }
     }
-    
+
+    private void OnMouseDown()
+    {
+    }
+
     void Update()
     {
+        P1Text.text = "" + Hero1Health;
+        P2Text.text = "" + Hero2Health;
         if (Hero1Health <= 0 || Hero2Health <= 0)
         {
             Death();

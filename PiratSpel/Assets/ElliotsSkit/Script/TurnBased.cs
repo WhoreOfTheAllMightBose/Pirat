@@ -18,6 +18,19 @@ public class TurnBased : MonoBehaviour
     void Update()
     {
         coloring();
+        if (Player1Turn)
+        {
+            GetComponent<SpriteRenderer>().flipY = false;
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipY = true;
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+       
+
     }
 
     void coloring()
@@ -35,10 +48,10 @@ public class TurnBased : MonoBehaviour
                 Players[0].GetComponent<MeshRenderer>().material.color = Color.white;
             }
 
-           // Debug.Log("Mouse is over GameObject. " + gameObject.name);
+            // Debug.Log("Mouse is over GameObject. " + gameObject.name);
         }
     }
-    
+
     void OnMouseDown()
     {
         Player1Turn = !Player1Turn;
@@ -47,6 +60,7 @@ public class TurnBased : MonoBehaviour
         CoinScript.TurnChange = true;
         CoinScript.WhoTurn++;
         CoinScript.debugg++;
-        
+
     }
+
 }

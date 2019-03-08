@@ -18,6 +18,7 @@ public class TempBaseCard2 : MonoBehaviour
     bool growing = true; //så att den växer och minskar när man har tryckt på ett kort
     bool hasAttackt;
 
+    bool cardBack;
     public static int _ID; // vart id ligger på just nu
     public int thisID; // vad detta obj har för id
     bool attacking;
@@ -59,7 +60,7 @@ public class TempBaseCard2 : MonoBehaviour
                 {
                     transform.GetChild(1).GetComponentInChildren<TextMesh>().text = _Attack.ToString();
                 }
-                if(i == 2)
+                if (i == 2)
                 {
                     transform.GetChild(2).gameObject.SetActive(false);
                 }
@@ -84,7 +85,11 @@ public class TempBaseCard2 : MonoBehaviour
         }
 
         if (_amountOfDmg > 0 && attacking)
+        {
             grow();
+            attackHero();
+        }
+
         else
         {
             transform.localScale = new Vector3(1, 1, 1);
@@ -95,30 +100,88 @@ public class TempBaseCard2 : MonoBehaviour
         if (hasAttackt && GetComponent<CardFuntion>().isDown)
         {
             GetComponent<SpriteRenderer>().material.color = Color.grey;
-            if(playOnce)
+            if (playOnce)
             {
                 audioS.PlayOneShot(_SpawnSound);
                 playOnce = false;
             }
-            
+
         }
-        else if(!hasAttackt && GetComponent<CardFuntion>().isDown)
+        else if (!hasAttackt && GetComponent<CardFuntion>().isDown)
         {
             GetComponent<SpriteRenderer>().material.color = Color.white;
         }
 
-        if (!TurnBased.Player1Turn && isPlayer1)
+        if (!TurnBased.Player1Turn && isPlayer1 && GetComponent<CardFuntion>().isDown)
         {
+            transform.GetChild(3).gameObject.SetActive(false);
             attacking = false;
             hasAttackt = false;
         }
 
-        else if (TurnBased.Player1Turn && !isPlayer1)
+        else if (TurnBased.Player1Turn && !isPlayer1 && GetComponent<CardFuntion>().isDown)
         {
+            transform.GetChild(3).gameObject.SetActive(false);
             attacking = false;
             hasAttackt = false;
         }
 
+        if (!TurnBased.Player1Turn && isPlayer1 && !GetComponent<CardFuntion>().isDown)
+        {
+            transform.GetChild(3).gameObject.SetActive(true);
+        }
+        if (TurnBased.Player1Turn && !isPlayer1 && !GetComponent<CardFuntion>().isDown)
+        {
+            transform.GetChild(3).gameObject.SetActive(true);
+        }
+        else if (!TurnBased.Player1Turn && !isPlayer1 && !GetComponent<CardFuntion>().isDown)
+        {
+            transform.GetChild(3).gameObject.SetActive(false);
+        }
+        else if (TurnBased.Player1Turn && isPlayer1 && !GetComponent<CardFuntion>().isDown)
+        {
+            transform.GetChild(3).gameObject.SetActive(false);
+        }
+    }
+
+    void attackHero()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mouse = Input.mousePosition; // få musens position
+            Ray castPoint;
+            RaycastHit hit; // om du träffar ett kort du ska välja
+            if (TurnBased.Player1Turn && isPlayer1)
+            {
+                castPoint = Camera.main.ScreenPointToRay(mouse);
+
+                if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+                {
+                    if(hit.collider.name == "Player2")
+                    {
+                        HeroScript.Hero2Health -= _Attack;
+                        hasAttackt = true;
+                        _amountOfDmg = 0;
+                        _amountOfDmgReseve = 0;
+                    }
+                }
+            }
+            if (!TurnBased.Player1Turn && !isPlayer1)
+            {
+                castPoint = Camera.main.ScreenPointToRay(mouse);
+
+                if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+                {
+                    if (hit.collider.name == "Player1")
+                    {
+                        HeroScript.Hero1Health -= _Attack;
+                        hasAttackt = true;
+                        _amountOfDmg = 0;
+                        _amountOfDmgReseve = 0;
+                    }
+                }
+            }
+        }
     }
 
     void grow()
@@ -141,50 +204,50 @@ public class TempBaseCard2 : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
-    {
-        if(GetComponent<CardFuntion>().isDown)
+        void OnMouseDown()
         {
-
-
-            if (TurnBased.Player1Turn && isPlayer1 && !hasAttackt)
+            if (GetComponent<CardFuntion>().isDown)
             {
-                cardThatTakeDmg = this.gameObject;
-                _amountOfDmg = _Attack;
+
+
+                if (TurnBased.Player1Turn && isPlayer1 && !hasAttackt)
+                {
+                    cardThatTakeDmg = gameObject;
+                    _amountOfDmg = _Attack;
+                    hasAttackt = true;
+                    attacking = true;
+                }
+
+                else if (!TurnBased.Player1Turn && !isPlayer1 && !hasAttackt)
+                {
+                    cardThatTakeDmg = gameObject;
+                    _amountOfDmg = _Attack;
+                    hasAttackt = true;
+                    attacking = true;
+                }
+                else if (!TurnBased.Player1Turn && isPlayer1)
+                {
+                    TakeDamage(_amountOfDmg);
+                    _amountOfDmg = _Attack;
+                    cardThatTakeDmg.GetComponent<TempBaseCard2>().TakeDamage(_amountOfDmg);
+                    _amountOfDmg = 0;
+                }
+
+                else if (TurnBased.Player1Turn && !isPlayer1)
+                {
+                    TakeDamage(_amountOfDmg);
+                    _amountOfDmg = _Attack;
+                    cardThatTakeDmg.GetComponent<TempBaseCard2>().TakeDamage(_amountOfDmg);
+                    _amountOfDmg = 0;
+                }
+            }
+            else
+            {
                 hasAttackt = true;
-                attacking = true;
-            }
-
-            else if (!TurnBased.Player1Turn && !isPlayer1 && !hasAttackt)
-            {
-                cardThatTakeDmg = this.gameObject;
-                _amountOfDmg = _Attack;
-                hasAttackt = true;
-                attacking = true;
-            }
-            else if(!TurnBased.Player1Turn && isPlayer1)
-            {
-                TakeDamage(_amountOfDmg);
-                _amountOfDmg = _Attack;
-                cardThatTakeDmg.GetComponent<TempBaseCard2>().TakeDamage(_amountOfDmg);
-                _amountOfDmg = 0;
-            }
-        
-            else if (TurnBased.Player1Turn && !isPlayer1)
-            {
-                TakeDamage(_amountOfDmg);
-                _amountOfDmg = _Attack;
-                cardThatTakeDmg.GetComponent<TempBaseCard2>().TakeDamage(_amountOfDmg);
-                _amountOfDmg = 0;
             }
         }
-        else
-        {
-            hasAttackt = true;
-        }
-    }
 
-    private void OnMouseOver()
+    void OnMouseOver()
     {
         if (!GetComponent<CardFuntion>().isDown)
         {
@@ -192,7 +255,7 @@ public class TempBaseCard2 : MonoBehaviour
         }
     }
 
-    private void OnMouseExit()
+    void OnMouseExit()
     {
         GetComponent<SpriteRenderer>().material.color = Color.white;
     }
@@ -217,8 +280,6 @@ public class TempBaseCard2 : MonoBehaviour
         _amountOfDmg = 0;
         if (_Hp <= 0)
         {
-          
-
             Destroy(gameObject);
         }
 
