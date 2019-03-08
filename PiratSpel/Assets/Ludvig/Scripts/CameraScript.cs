@@ -10,7 +10,8 @@ public class CameraScript : MonoBehaviour
     public int Where;
     public static bool camchange;
     public static bool camchange2;
-    public Camera cam1;
+    public Camera MainCamera;
+    public Camera TurnCamera;
     public static int blackouttimer;
     public static int blackouttimer2;
     void Start()
@@ -18,6 +19,7 @@ public class CameraScript : MonoBehaviour
         LookAtThisThing = GameObject.FindGameObjectWithTag("LookAtThis");
         Where = 0;
         camchange = false;
+        TurnCamera.enabled = false;
     }
     
     
@@ -39,7 +41,8 @@ public class CameraScript : MonoBehaviour
         }
         if (blackouttimer >= 1)
         {
-            cam1.enabled = false;
+            MainCamera.enabled = false;
+            TurnCamera.enabled = true;
             camchange2 = true;
         }
         if (camchange2 == true)
@@ -54,7 +57,8 @@ public class CameraScript : MonoBehaviour
         {
             blackouttimer2 = 0;
             blackouttimer = 0;
-            cam1.enabled = true;
+            MainCamera.enabled = true;
+            TurnCamera.enabled = false;
         }
 
         if (Where == 0)

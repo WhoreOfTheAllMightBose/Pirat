@@ -14,6 +14,7 @@ public class HeroScript : MonoBehaviour
     public Text text;
     public Text text2;
     public int RestartingGame;
+    public int countdown;
     
     void Start()
     {
@@ -41,6 +42,9 @@ public class HeroScript : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             //byt namn med scenen vi kommer spela i så retartar man spelet om vis tid
+            Hero1Health = 20;
+            Hero2Health = 20;
+            RestartingGame = 0;
         }
     }
     
