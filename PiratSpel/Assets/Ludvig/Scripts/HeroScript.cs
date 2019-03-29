@@ -20,8 +20,8 @@ public class HeroScript : MonoBehaviour
     
     void Start()
     {
-        Hero1Health = 20;
-        Hero2Health = 15;
+        Hero1Health = 25;
+        Hero2Health = 25;
         EndingCamera.enabled = false;
     }
 
@@ -62,7 +62,8 @@ public class HeroScript : MonoBehaviour
         P2Text.text = "" + Hero2Health;
         if (Hero1Health <= 0 || Hero2Health <= 0)
         {
-            Death();
+            SceneManager.LoadScene("Restart");
+           // Death();
         }
     }
 }

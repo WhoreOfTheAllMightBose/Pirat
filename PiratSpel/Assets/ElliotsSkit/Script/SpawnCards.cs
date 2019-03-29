@@ -18,21 +18,13 @@ public class SpawnCards : MonoBehaviour
         CardsP1 = new List<GameObject>();
         CardsP2 = new List<GameObject>();
 
-        //spawnpos = new Vector3(-10, 0, -0.8f);
-        ////g = P1Playingcards[0];
-        ////CardsP1.Add(g);
-
-        //spawnpos = new Vector3(-10, 0, 22);
-        //g = P2Playingcards[0];
-        //CardsP2.Add(g);
-       // Instantiate(g);
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(CardsP1.Count);
-        print(CardsP2.Count);
+        RefreshCardPos();
+
     }
 
     GameObject randCard()
@@ -55,54 +47,57 @@ public class SpawnCards : MonoBehaviour
         {
             for (int i = 0; i < CardsP1.Count; i++)
             {
-                CardsP1[i].transform.position = new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * CardsP1.Count, 0, -0.8f);
-                print(CardsP1[i].transform.position);
+                //if (CardsP1[i].GetComponent<CardFuntion>().isDown)
+                //    CardsP1.Remove(CardsP1[i]);
+                if(CardsP1.Count > 7 && i >= 7)
+                    CardsP1[i].GetComponent<TempBaseCard2>().respawn(new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * i, 0, -5f));
+
+                CardsP1[i].GetComponent<TempBaseCard2>().respawn(new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * i, 0, -0.8f));
             }
+
+
         }
 
         if (!TurnBased.Player1Turn)
         {
             for (int i = 0; i < CardsP2.Count; i++)
             {
-                CardsP2[i].transform.position = new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * CardsP2.Count, 0, 22);
-                print(CardsP2[i].transform.position);
+                //if (CardsP2[i].GetComponent<CardFuntion>().isDown)
+                //    CardsP2.Remove(CardsP1[i]);
+
+                if(CardsP2.Count > 7 && i >= 7)
+                    CardsP2[i].GetComponent<TempBaseCard2>().respawn(new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * i, 0, 27));
+                CardsP2[i].GetComponent<TempBaseCard2>().respawn(new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * i, 0, 22));
             }
         }
     }
 
+
     private void OnMouseDown()
     {
-        //print(CardsP1.Count);
-        //print(CardsP2.Count);
         if (TurnBased.Player1Turn && CoinScript.CoinAmountP1 > 0)
         {
             CoinScript.CoinAmountP1--;
-            spawnpos = new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * CardsP1.Count, 0, -0.8f);
-            //for (int i = 0; i < CardsP1.Count; i++)
-            //{
-            //    if (i + 2 <= CardsP1.Count)
-            //    {
-            //        float temp = Vector3.Distance(CardsP1[i].transform.position, CardsP1[i + 1].transform.position);
-            //        if (temp < 74)
-            //        {
-            //            spawnpos = new Vector3(-10 + P1Playingcards[i].transform.localScale.x * 3.5f * i, 0, -0.8f);
-            //        }
-            //    }
-            //}
-            g = randCard();
-            CardsP1.Add(g);
-            Instantiate(g, spawnpos, Quaternion.identity);
+            if(CardsP1.Count < 7)
+                 spawnpos = new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * CardsP1.Count, 0, -0.8f);
+            else
+                spawnpos = new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * CardsP1.Count, 0, -5f);
 
-            //   GetComponent<TemporaryCard>().CardsP1.Add(g);
+            g = randCard();
+            CardsP1.Add(Instantiate(g, spawnpos, Quaternion.identity));
+
         }
 
         if (!TurnBased.Player1Turn && CoinScript.CoinAmountP2 > 0)
         {
             CoinScript.CoinAmountP2--;
-            spawnpos = new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * CardsP2.Count, 0, 22);
+            if(CardsP2.Count < 7)
+                spawnpos = new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * CardsP2.Count, 0, 22);
+            else
+                spawnpos = new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * CardsP2.Count, 0, 27);
+
             g = randCard();
-            CardsP2.Add(g);
-            Instantiate(g, spawnpos, Quaternion.identity);
+            CardsP2.Add(Instantiate(g, spawnpos, Quaternion.identity));
         }
     }
 }

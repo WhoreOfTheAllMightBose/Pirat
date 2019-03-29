@@ -9,11 +9,12 @@ public class CardFuntion : MonoBehaviour
 
     Vector3 restartpos; // ifall du trycker utanför kortrutorna ska dem komma tillbaka till denna position
     public bool IsPlayer1 = true; // ifall detta kort tillhör spelare 1
-    public bool isDown = false; // om du har lagt ner kortet
+    public bool isDown; // om du har lagt ner kortet
     bool isOver; // om kortet är över en ruta den kan bli plaserad på
 
     void Start()
     {
+        isDown = false;
         //om det inte är spelare 1 runda ska kortet inte tillhöra spelare 1 och ska spawna på andra sidan
         if (!TurnBased.Player1Turn)
         {
@@ -42,8 +43,6 @@ public class CardFuntion : MonoBehaviour
                 {
                     if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
                     {
-                        // print(Input.mousePosition);
-                        //print(hit.transform.name);
                         Vector3 pos = new Vector3(hit.point.x, 1, hit.point.z);
                         transform.position = pos; // så att kortet du håller har samma position som musen
                     }
@@ -79,24 +78,9 @@ public class CardFuntion : MonoBehaviour
                     {
                         isDown = true; // så att du sätter ner kortet och inte kan ta upp det igen
 
-                      //  for (int i = 0; i < SpawnCards.CardsP1.Count; i++)
-                      //  {
-                      //      //SpawnCards.CardsP1[i].transform.position = new Vector3(-10 + 3.5f * i, 0, -0.8f);
-                      //      print(" kort namn före  " + SpawnCards.CardsP1[i].gameObject.name);
-                      //  }
+                        SpawnCards.CardsP1.Remove(gameObject);
 
-                      //  print("namn på kort vi tar bort = " + gameObject.name);
-                      //  print(SpawnCards.CardsP1.IndexOf(gameObject));
-                      ////  SpawnCards.CardsP1.RemoveAll(card => card.name == gameObject.name);
-                      //  SpawnCards.CardsP1.Remove(gameObject);
-                      //  print("lista läng " + SpawnCards.CardsP1.Count);
-                      //  for (int i = 0; i < SpawnCards.CardsP1.Count; i++)
-                      //  {
-                      //      SpawnCards.CardsP1[i].transform.position = new Vector3(-10 + 3.5f * i, 0, -0.8f);
-                      //      print(" kort namn efter " + SpawnCards.CardsP1[i].gameObject.name);
-                      //  }
-
-                        //  FindObjectOfType<SpawnCards>().RefreshCardPos();
+                      //  FindObjectOfType<SpawnCards>().RefreshCardPos();
 
                         CoinScript.CoinAmountP1 -= GetComponent<TempBaseCard2>()._Cost;
 
@@ -107,18 +91,12 @@ public class CardFuntion : MonoBehaviour
                     else if (hitD.transform.name == "slot2" && !IsPlayer1  && CoinScript.CoinAmountP2 - GetComponent<TempBaseCard2>()._Cost >= 0) // kollar så att detta kort tillhör spelare 2 och se till att yta nockdå tillhör spelare 2
                     {
                         isDown = true;// så att du sätter ner kortet och inte kan ta upp det igen
-                      //  SpawnCards.CardsP2.Remove(SpawnCards.CardsP2[GetComponent<TempBaseCard2>().thisID]);
 
-                        //for (int i = 0; i < SpawnCards.CardsP2.Count; i++)
-                        //{
-                        //    SpawnCards.CardsP2[i].transform.position = new Vector3(-10 + 3.5f * i, 0, -0.8f);
-                        //  //  print(i + " " + SpawnCards.CardsP[i].transform.position);
-                        //}
+                        SpawnCards.CardsP2.Remove(gameObject);
 
-                       // FindObjectOfType<SpawnCards>().RefreshCardPos();
+                      //  FindObjectOfType<SpawnCards>().RefreshCardPos();
 
                         CoinScript.CoinAmountP2 -= GetComponent<TempBaseCard2>()._Cost;
-                        //  print(hitD.transform.name);
                         transform.position = hitD.transform.position;// så du får samma position som den position som är under kortet
                         turnOfHighLigt();// så att dem inte lyser längre
                     }

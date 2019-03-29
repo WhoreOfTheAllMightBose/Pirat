@@ -8,12 +8,14 @@ public class FirstCard : TempBaseCard2
     public int ad;
     public int hp;
     public int co;
-    public AudioClip spawnsound;
+    public AudioClip Spawnsound;
+    public AudioClip Attacksound;
     // Start is called before the first frame update
     public override void Start()
     {
         StartingStats(ad, hp, co);
-        _SpawnSound = spawnsound;
+        _SpawnSound = Spawnsound;
+        _AttackSound = Attacksound;
 
         base.Start();
     }

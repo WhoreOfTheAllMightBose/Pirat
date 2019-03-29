@@ -22,8 +22,8 @@ public class CoinScript : MonoBehaviour
     void Start()
     {
         CoinGain = 1;
-        CoinAmountP1 = 5;
-        CoinAmountP2 = 5;
+        CoinAmountP1 = 50;
+        CoinAmountP2 = 50;
         WhoTurn = 0;
         CoinGain = 1;
     }
