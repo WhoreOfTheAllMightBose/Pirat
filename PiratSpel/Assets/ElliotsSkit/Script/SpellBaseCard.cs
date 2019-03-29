@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellBaseCard : MonoBehaviour
+public class SpellBaseCard : BaseCard
 {
-    protected int _dmg;
-    protected int _heal;
-    protected int _cost;
     bool selected;
 
     // Update is called once per frame
@@ -28,8 +25,8 @@ public class SpellBaseCard : MonoBehaviour
                     {
                         if (FindObjectOfType<CardFuntion>().isDown || FindObjectOfType<CardFuntion>() == null)
                         {
-                            hit.collider.GetComponent<TempBaseCard2>().TakeDamage(_dmg);
-                            hit.collider.GetComponent<TempBaseCard2>().Buff(_heal, "Hp");
+                            hit.collider.GetComponent<TempBaseCard2>().TakeDamage(_Attack);
+                            hit.collider.GetComponent<TempBaseCard2>().Buff(_Hp, "Hp");
                             Destroy(gameObject);
                         }
                     }
@@ -46,16 +43,16 @@ public class SpellBaseCard : MonoBehaviour
         selected = true;
         if(FindObjectOfType<CardFuntion>().IsPlayer1)
         {
-            if (CoinScript.CoinAmountP1 - _cost >= 0)
+            if (CoinScript.CoinAmountP1 - _Cost >= 0)
             {
-                CoinScript.CoinAmountP1 -= _cost;
+                CoinScript.CoinAmountP1 -= _Cost;
             }
         }
         else
         {
-            if (CoinScript.CoinAmountP2 - _cost >= 0)
+            if (CoinScript.CoinAmountP2 - _Cost >= 0)
             {
-                CoinScript.CoinAmountP2 -= _cost;
+                CoinScript.CoinAmountP2 -= _Cost;
             }
         }
     }

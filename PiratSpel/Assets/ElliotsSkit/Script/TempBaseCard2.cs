@@ -18,10 +18,10 @@ public class TempBaseCard2 : MonoBehaviour
     bool growing = true; //så att den växer och minskar när man har tryckt på ett kort
     bool hasAttackt; // om kortet har redan attackerat(så det bara kan attackera en gng)
 
-    bool attacking; // ifall kortet är i attack läge
+    protected bool attacking; // ifall kortet är i attack läge
     bool playOnce = true; //ifall du har lagt ut kortet ska den inte kunna anfalla och ska spela spawn ljudet
-    static int _amountOfDmg; // hur mycket skada fienden ska ta(och att bara en ska kunna anfalla åt gången)
-    static GameObject cardThatTakeDmg; // så att det kortet som anfaller också tar skada
+    protected static int _amountOfDmg; // hur mycket skada fienden ska ta(och att bara en ska kunna anfalla åt gången)
+    protected static GameObject cardThatTakeDmg; // så att det kortet som anfaller också tar skada
 
     public virtual void Start()
     {
@@ -37,9 +37,9 @@ public class TempBaseCard2 : MonoBehaviour
         }
     }
 
-    public void respawn(Vector3 NewPos)
+    public  void respawn(Vector3 newpos)
     {
-        transform.position = NewPos;
+        transform.position = newpos;
     }
 
     public virtual void Update()
@@ -174,7 +174,7 @@ public class TempBaseCard2 : MonoBehaviour
     /// <summary>
     /// så att man kan anfalla spelarna
     /// </summary>
-    void attackHero()
+    public virtual void attackHero()
     {
         if (Input.GetMouseButtonDown(0))
         {
