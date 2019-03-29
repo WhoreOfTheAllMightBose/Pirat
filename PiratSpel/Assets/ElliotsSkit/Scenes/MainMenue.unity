@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &16672739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -163,6 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f699f295961d5534aad18a7737842ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Deck1: []
+  Deck2: []
+  P1Deck: []
+  P2Deck: []
 --- !u!1 &50510370
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +348,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f699f295961d5534aad18a7737842ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Deck1:
+  - {fileID: 6394092480616223944, guid: 78df3c1d3c4081b4e9d271cb557dc60c, type: 3}
+  - {fileID: 939387645429100830, guid: 8c4b23f87a370054796bdc997a35d744, type: 3}
+  - {fileID: 1596755983283906124, guid: b463e3098901cf040a552c83740c9f7f, type: 3}
+  - {fileID: 8598623028334304706, guid: 3c965e1d36f7f574ba5855c4c48dad8d, type: 3}
+  - {fileID: 5540671211912944829, guid: df5f1d4c8ac028546939fa6227da901e, type: 3}
+  - {fileID: 8510724526380528259, guid: 4b722bc6bd350e24e80932f29ea5f818, type: 3}
+  Deck2:
+  - {fileID: 58, guid: 65276036bf9008a40b6bf994bddbdff3, type: 3}
+  - {fileID: 1097224975967110274, guid: 2581ecad70249684ab865fb47297bd48, type: 3}
+  - {fileID: 97, guid: 868342110bd151048a93bed341a30767, type: 3}
+  - {fileID: 74, guid: 09c251f0e2bb1d746825b996c61b0d18, type: 3}
+  P1Deck: []
+  P2Deck: []
 --- !u!1 &206308945
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,11 +658,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -745,15 +763,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545189138}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1545189140}
+        m_MethodName: Player2Deck
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Monkey
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -943,15 +961,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 86443389}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 86443391}
+        m_MethodName: Player1Deck
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Monkey
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1128,11 +1146,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1154,6 +1172,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405673416}
   m_CullTransparentMesh: 0
+--- !u!1 &414485244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414485246}
+  - component: {fileID: 414485245}
+  m_Layer: 0
+  m_Name: DeckSaver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &414485245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414485244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c23093869161554598d9d24d31ef60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &414485246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414485244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 348.1834, y: 174.4625, z: 154.625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471420879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,11 +1784,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1989,15 +2050,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545189138}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1545189140}
+        m_MethodName: Player2Deck
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: IsLand
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2134,6 +2195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f699f295961d5534aad18a7737842ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Deck1: []
+  Deck2: []
+  P1Deck: []
+  P2Deck: []
 --- !u!1 &974642742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,15 +2844,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 86443389}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 86443391}
+        m_MethodName: Player1Deck
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: IsLand
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3220,7 +3285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1545189139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3256,6 +3321,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f699f295961d5534aad18a7737842ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Deck1:
+  - {fileID: 6394092480616223944, guid: 78df3c1d3c4081b4e9d271cb557dc60c, type: 3}
+  - {fileID: 939387645429100830, guid: 8c4b23f87a370054796bdc997a35d744, type: 3}
+  - {fileID: 1596755983283906124, guid: b463e3098901cf040a552c83740c9f7f, type: 3}
+  - {fileID: 8598623028334304706, guid: 3c965e1d36f7f574ba5855c4c48dad8d, type: 3}
+  - {fileID: 5540671211912944829, guid: df5f1d4c8ac028546939fa6227da901e, type: 3}
+  - {fileID: 8510724526380528259, guid: 4b722bc6bd350e24e80932f29ea5f818, type: 3}
+  Deck2:
+  - {fileID: 74, guid: 09c251f0e2bb1d746825b996c61b0d18, type: 3}
+  - {fileID: 97, guid: 868342110bd151048a93bed341a30767, type: 3}
+  - {fileID: 1097224975967110274, guid: 2581ecad70249684ab865fb47297bd48, type: 3}
+  - {fileID: 58, guid: 65276036bf9008a40b6bf994bddbdff3, type: 3}
+  P1Deck: []
+  P2Deck: []
 --- !u!1 &1905259022
 GameObject:
   m_ObjectHideFlags: 0

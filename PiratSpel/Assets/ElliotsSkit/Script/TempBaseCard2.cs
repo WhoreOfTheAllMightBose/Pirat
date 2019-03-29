@@ -320,7 +320,28 @@ public class TempBaseCard2 : MonoBehaviour
         _Cost += Co;
     }
 
-    public virtual void TakeDamage(int Dmg)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="Amount"></param>
+    /// <param name="type">Hp, Ad eller Co</param>
+    public void Buff(int Amount,string type)
+    {
+        if(type == "Ad")
+        {
+            _Attack += Amount;
+        }
+        if (type == "Hp")
+        {
+            _Hp += Amount;
+        }
+        if (type == "Co")
+        {
+            _Cost += Amount;
+        }
+    }
+
+    public void TakeDamage(int Dmg)
     {
         _Hp -= Dmg;
         _amountOfDmg = 0;

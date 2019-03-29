@@ -17,7 +17,6 @@ public class SpawnCards : MonoBehaviour
     {
         CardsP1 = new List<GameObject>();
         CardsP2 = new List<GameObject>();
-
     }
 
     // Update is called once per frame

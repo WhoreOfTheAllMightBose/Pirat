@@ -172,8 +172,8 @@ GameObject:
   - component: {fileID: 1815606466823938652}
   - component: {fileID: 5649388622770352172}
   m_Layer: 0
-  m_Name: 'card(WeakMonky) '
-  m_TagString: Untagged
+  m_Name: card(WeakMonky)
+  m_TagString: MinionCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
