@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
 
-public class FirstCard : TempBaseCard2
+public class FirstCard : MinionBaseCard
 {
     public int ad;
     public int hp;

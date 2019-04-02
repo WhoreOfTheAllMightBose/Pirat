@@ -6,15 +6,12 @@ public class FirstSpell : SpellBaseCard
 {
     public int Dmg;
     public int Heal;
-    public int Cost;
     // Start is called before the first frame update
     void Start()
     {
-        _dmg = Dmg;
+        _Attack = Dmg;
+        _Hp = Heal;
 
-        _heal = Heal;
-
-        _cost = Cost;
     }
 
 }

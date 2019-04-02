@@ -49,9 +49,9 @@ public class SpawnCards : MonoBehaviour
                 //if (CardsP1[i].GetComponent<CardFuntion>().isDown)
                 //    CardsP1.Remove(CardsP1[i]);
                 if(CardsP1.Count > 7 && i >= 7)
-                    CardsP1[i].GetComponent<TempBaseCard2>().respawn(new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * i, 0, -5f));
+                    CardsP1[i].GetComponent<BaseCard>().respawn(new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * i, 0, -5f));
 
-                CardsP1[i].GetComponent<TempBaseCard2>().respawn(new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * i, 0, -0.8f));
+                CardsP1[i].GetComponent<BaseCard>().respawn(new Vector3(-10 + P1Playingcards[0].transform.localScale.x * 3.5f * i, 0, -0.8f));
             }
 
 
@@ -65,8 +65,8 @@ public class SpawnCards : MonoBehaviour
                 //    CardsP2.Remove(CardsP1[i]);
 
                 if(CardsP2.Count > 7 && i >= 7)
-                    CardsP2[i].GetComponent<TempBaseCard2>().respawn(new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * i, 0, 27));
-                CardsP2[i].GetComponent<TempBaseCard2>().respawn(new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * i, 0, 22));
+                    CardsP2[i].GetComponent<BaseCard>().respawn(new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * i, 0, 27));
+                CardsP2[i].GetComponent<BaseCard>().respawn(new Vector3(12 - P2Playingcards[0].transform.localScale.x * 3.5f * i, 0, 22));
             }
         }
     }

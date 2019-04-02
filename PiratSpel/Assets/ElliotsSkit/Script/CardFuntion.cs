@@ -74,7 +74,7 @@ public class CardFuntion : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0)) // och om du trycker ner vänster musknapp
                 {
-                    if (hitD.transform.name == "slot1" && IsPlayer1 && CoinScript.CoinAmountP1 - GetComponent<TempBaseCard2>()._Cost >= 0) // kollar ifall det är ett kort som tillhör spelare 1 och en yta som tillhör spelare 1
+                    if (hitD.transform.name == "slot1" && IsPlayer1 && CoinScript.CoinAmountP1 - GetComponent<BaseCard>()._Cost >= 0) // kollar ifall det är ett kort som tillhör spelare 1 och en yta som tillhör spelare 1
                     {
                         isDown = true; // så att du sätter ner kortet och inte kan ta upp det igen
 
@@ -82,13 +82,13 @@ public class CardFuntion : MonoBehaviour
 
                       //  FindObjectOfType<SpawnCards>().RefreshCardPos();
 
-                        CoinScript.CoinAmountP1 -= GetComponent<TempBaseCard2>()._Cost;
+                        CoinScript.CoinAmountP1 -= GetComponent<BaseCard>()._Cost;
 
                        // print(hitD.transform.name);
                         transform.position = hitD.transform.position; // så du får samma position som den position som är under kortet
                         turnOfHighLigt(); // så att dem inte lyser längre
                     }
-                    else if (hitD.transform.name == "slot2" && !IsPlayer1  && CoinScript.CoinAmountP2 - GetComponent<TempBaseCard2>()._Cost >= 0) // kollar så att detta kort tillhör spelare 2 och se till att yta nockdå tillhör spelare 2
+                    else if (hitD.transform.name == "slot2" && !IsPlayer1  && CoinScript.CoinAmountP2 - GetComponent<BaseCard>()._Cost >= 0) // kollar så att detta kort tillhör spelare 2 och se till att yta nockdå tillhör spelare 2
                     {
                         isDown = true;// så att du sätter ner kortet och inte kan ta upp det igen
 
@@ -96,7 +96,7 @@ public class CardFuntion : MonoBehaviour
 
                       //  FindObjectOfType<SpawnCards>().RefreshCardPos();
 
-                        CoinScript.CoinAmountP2 -= GetComponent<TempBaseCard2>()._Cost;
+                        CoinScript.CoinAmountP2 -= GetComponent<BaseCard>()._Cost;
                         transform.position = hitD.transform.position;// så du får samma position som den position som är under kortet
                         turnOfHighLigt();// så att dem inte lyser längre
                     }
@@ -145,7 +145,6 @@ public class CardFuntion : MonoBehaviour
     {
         if (!isOver && !isDown)  // !IsOver = ifall du inte har obj över en yta den ska sättas ut på  
         {                        // IsDown = så att du inte kommer åt obj om du har satt ner det på en tom spel yta
-
             RaycastHit cardOnTop; // en sak som inte funkar just nu. men jobbar på det
 
             if (TurnBased.Player1Turn && IsPlayer1) // ifall det är spelares 1 runda och spelares 1 kort

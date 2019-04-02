@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellBaseCard : MonoBehaviour
+public class SpellBaseCard : BaseCard
 {
-    protected int _dmg;
-    protected int _heal;
-    protected int _cost;
     bool selected;
     bool p1turn;
 
@@ -29,7 +26,7 @@ public class SpellBaseCard : MonoBehaviour
                     {
                         if (TurnBased.Player1Turn)
                         {
-                            if (CoinScript.CoinAmountP1 - _cost >= 0)
+                          if (CoinScript.CoinAmountP1 - _cost >= 0)
                             {
                                 CoinScript.CoinAmountP1 -= _cost;
                             }
@@ -58,6 +55,8 @@ public class SpellBaseCard : MonoBehaviour
 
                             hit.collider.GetComponent<TempBaseCard2>().TakeDamage(_dmg);
                             hit.collider.GetComponent<TempBaseCard2>().Buff(_heal, "Hp");
+
+
                         }
                       
                         Destroy(gameObject);
