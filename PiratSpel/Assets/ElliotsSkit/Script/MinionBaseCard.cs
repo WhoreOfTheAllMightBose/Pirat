@@ -159,11 +159,11 @@ public class MinionBaseCard : BaseCard
                     hasAttackt = true;
                     attacking = true;
                 }
-
                 else if (!isPlayer1 && cardThatTakeDmg.GetComponent<MinionBaseCard>().attacking) // så att spelare 2 kort ska kunna ta skada. samt att dem inte kan skada sig själva
                 {
                     TakeDamage(_amountOfDmg); // så att detta kort tar skada
                     _amountOfDmg = _Attack; // så att finde kortet tar lika mycket skada som detta kort ska ge
+                    cardThatTakeDmg.GetComponent<MinionBaseCard>().TakeDamage(_amountOfDmg);
                     cardThatTakeDmg.GetComponent<MinionBaseCard>().PlayAttackSound();
                     _amountOfDmg = 0; // så nästa kort ej tar skada 
 
@@ -185,6 +185,7 @@ public class MinionBaseCard : BaseCard
                     TakeDamage(_amountOfDmg);
                     _amountOfDmg = _Attack;
                     cardThatTakeDmg.GetComponent<MinionBaseCard>().TakeDamage(_amountOfDmg);
+                    cardThatTakeDmg.GetComponent<MinionBaseCard>().PlayAttackSound();
                     _amountOfDmg = 0;
                 }
             }

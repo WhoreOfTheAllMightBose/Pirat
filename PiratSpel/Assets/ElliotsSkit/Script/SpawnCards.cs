@@ -8,9 +8,12 @@ public class SpawnCards : MonoBehaviour
     public static GameObject[] P1Playingcards;
     public static GameObject[] P2Playingcards;
     public GameObject[] MonkeyDeck;
-    public GameObject[] MonkeyIsLand;
+    public GameObject[] IsLand;
     public static List<GameObject> CardsP1;
     public static List<GameObject> CardsP2;
+
+    bool p1nodeck = true;
+    bool p2nodeck = true;
     GameObject g;
     Vector3 spawnpos;
     int rand;
@@ -27,12 +30,14 @@ public class SpawnCards : MonoBehaviour
         {
             P1Playingcards = MonkeyDeck;
             print("deck 1");
+            p1nodeck = false;
         }
 
         else if (deckname == "IsLand")
         {
-            P1Playingcards = MonkeyIsLand;
+            P1Playingcards = IsLand;
             print("deck 2");
+            p1nodeck = false;
         }
     }
     public void Player2Deck(string deckname)
@@ -40,11 +45,13 @@ public class SpawnCards : MonoBehaviour
         if (deckname == "Monkey")
         {
             P2Playingcards = MonkeyDeck;
+            p2nodeck = false;
         }
 
         else if (deckname == "IsLand")
         {
-            P2Playingcards = MonkeyIsLand;
+            P2Playingcards = IsLand;
+            p2nodeck = false;
         }
 
     }
@@ -53,6 +60,14 @@ public class SpawnCards : MonoBehaviour
     void Update()
     {
         RefreshCardPos();
+        if(p1nodeck)
+        {
+            P1Playingcards = MonkeyDeck;
+        }
+        if(p2nodeck)
+        {
+            P2Playingcards = IsLand;
+        } 
     }
 
     GameObject randCard()

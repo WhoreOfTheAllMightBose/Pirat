@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ElliotsSkit/Scenes/SampleScene.unity
     guid: 0a3e99e34c8f0914cbaab76ece3048a0
+  - enabled: 1
+    path: Assets/ElliotsSkit/Scenes/MainMenue.unity
+    guid: 0c8b5c4fd79209044b6e1221c38a61d7
   m_configObjects: {}

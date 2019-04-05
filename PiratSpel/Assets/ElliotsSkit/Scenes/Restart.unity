@@ -273,6 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f699f295961d5534aad18a7737842ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Deck1: []
+  Deck2: []
 --- !u!1 &487000548
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +362,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SampleScene
+          m_StringArgument: MainMenue
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
