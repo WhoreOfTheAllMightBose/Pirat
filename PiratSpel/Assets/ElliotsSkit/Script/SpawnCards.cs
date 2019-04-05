@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class SpawnCards : MonoBehaviour
 {
-    public GameObject[] P1Playingcards;
-    public GameObject[] P2Playingcards;
+    public static GameObject[] P1Playingcards;
+    public static GameObject[] P2Playingcards;
+    public GameObject[] MonkeyDeck;
+    public GameObject[] MonkeyIsLand;
     public static List<GameObject> CardsP1;
     public static List<GameObject> CardsP2;
     GameObject g;
@@ -19,11 +21,38 @@ public class SpawnCards : MonoBehaviour
         CardsP2 = new List<GameObject>();
     }
 
+    public void Player1Deck(string deckname)
+    {
+        if (deckname == "Monkey")
+        {
+            P1Playingcards = MonkeyDeck;
+            print("deck 1");
+        }
+
+        else if (deckname == "IsLand")
+        {
+            P1Playingcards = MonkeyIsLand;
+            print("deck 2");
+        }
+    }
+    public void Player2Deck(string deckname)
+    {
+        if (deckname == "Monkey")
+        {
+            P2Playingcards = MonkeyDeck;
+        }
+
+        else if (deckname == "IsLand")
+        {
+            P2Playingcards = MonkeyIsLand;
+        }
+
+    }
+
     // Update is called once per frame
     void Update()
     {
         RefreshCardPos();
-
     }
 
     GameObject randCard()

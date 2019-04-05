@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpellBaseCard : BaseCard
 {
+    protected int _heal;
+
     bool selected;
     bool p1turn;
 
@@ -26,25 +28,25 @@ public class SpellBaseCard : BaseCard
                     {
                         if (TurnBased.Player1Turn)
                         {
-                          if (CoinScript.CoinAmountP1 - _cost >= 0)
+                          if (CoinScript.CoinAmountP1 - _Cost >= 0)
                             {
-                                CoinScript.CoinAmountP1 -= _cost;
+                                CoinScript.CoinAmountP1 -= _Cost;
                             }
                         }
                         else
                         {
-                            if (CoinScript.CoinAmountP2 - _cost >= 0)
+                            if (CoinScript.CoinAmountP2 - _Cost >= 0)
                             {
-                                CoinScript.CoinAmountP2 -= _cost;
+                                CoinScript.CoinAmountP2 -= _Cost;
                             }
                         }
                         if (hit.collider.name == "Player2") // om du träffade spelares 2 hero ska spelare 1 ta skada och kortet ska inte kunna anfalla igen
                         {
-                            HeroScript.Hero2Health -= _dmg;
+                            HeroScript.Hero2Health -= _Attack;
                         }
                         else if (hit.collider.name == "Player1")
                         {
-                            HeroScript.Hero1Health -= _dmg;
+                            HeroScript.Hero1Health -= _Attack;
                         }
                         else if (hit.collider.gameObject.GetComponent<CardFuntion>().isDown)
                         {
@@ -53,7 +55,7 @@ public class SpellBaseCard : BaseCard
                             else
                                 p1turn = false;
 
-                            hit.collider.GetComponent<TempBaseCard2>().TakeDamage(_dmg);
+                            hit.collider.GetComponent<TempBaseCard2>().TakeDamage(_Attack);
                             hit.collider.GetComponent<TempBaseCard2>().Buff(_heal, "Hp");
 
 

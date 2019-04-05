@@ -1761,12 +1761,12 @@ PrefabInstance:
     - target: {fileID: 24787198, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P1Playingcards.Array.data[1]
       value: 
-      objectReference: {fileID: 939387645429100830, guid: 8c4b23f87a370054796bdc997a35d744,
+      objectReference: {fileID: 1596755983283906124, guid: b463e3098901cf040a552c83740c9f7f,
         type: 3}
     - target: {fileID: 24787198, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P1Playingcards.Array.data[2]
       value: 
-      objectReference: {fileID: 1596755983283906124, guid: b463e3098901cf040a552c83740c9f7f,
+      objectReference: {fileID: 939387645429100830, guid: 8c4b23f87a370054796bdc997a35d744,
         type: 3}
     - target: {fileID: 24787198, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P1Playingcards.Array.data[3]
@@ -1794,20 +1794,20 @@ PrefabInstance:
     - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P2Playingcards.Array.data[3]
       value: 
-      objectReference: {fileID: 74, guid: 09c251f0e2bb1d746825b996c61b0d18, type: 3}
+      objectReference: {fileID: 58, guid: 65276036bf9008a40b6bf994bddbdff3, type: 3}
     - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P2Playingcards.Array.data[1]
+      value: 
+      objectReference: {fileID: 97, guid: 868342110bd151048a93bed341a30767, type: 3}
+    - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
+      propertyPath: P2Playingcards.Array.data[2]
       value: 
       objectReference: {fileID: 1097224975967110274, guid: 2581ecad70249684ab865fb47297bd48,
         type: 3}
     - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
-      propertyPath: P2Playingcards.Array.data[2]
-      value: 
-      objectReference: {fileID: 97, guid: 868342110bd151048a93bed341a30767, type: 3}
-    - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P2Playingcards.Array.data[0]
       value: 
-      objectReference: {fileID: 58, guid: 65276036bf9008a40b6bf994bddbdff3, type: 3}
+      objectReference: {fileID: 74, guid: 09c251f0e2bb1d746825b996c61b0d18, type: 3}
     - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P1Playingcards.Array.data[0]
       value: 
@@ -1816,17 +1816,17 @@ PrefabInstance:
     - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P1Playingcards.Array.data[1]
       value: 
-      objectReference: {fileID: 939387645429100830, guid: 8c4b23f87a370054796bdc997a35d744,
+      objectReference: {fileID: 8598623028334304706, guid: 3c965e1d36f7f574ba5855c4c48dad8d,
         type: 3}
     - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P1Playingcards.Array.data[2]
       value: 
-      objectReference: {fileID: 1596755983283906124, guid: b463e3098901cf040a552c83740c9f7f,
+      objectReference: {fileID: 939387645429100830, guid: 8c4b23f87a370054796bdc997a35d744,
         type: 3}
     - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P1Playingcards.Array.data[3]
       value: 
-      objectReference: {fileID: 8598623028334304706, guid: 3c965e1d36f7f574ba5855c4c48dad8d,
+      objectReference: {fileID: 1596755983283906124, guid: b463e3098901cf040a552c83740c9f7f,
         type: 3}
     - target: {fileID: 2031064931, guid: 89949919273f5b44ba5a83feda24ab29, type: 3}
       propertyPath: P1Playingcards.Array.data[4]

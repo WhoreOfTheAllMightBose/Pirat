@@ -10,7 +10,7 @@ public class FirstSpell : SpellBaseCard
     void Start()
     {
         _Attack = Dmg;
-        _Hp = Heal;
+        _heal = Heal;
 
     }
 
