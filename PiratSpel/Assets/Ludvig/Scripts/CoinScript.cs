@@ -23,7 +23,7 @@ public class CoinScript : MonoBehaviour
     {
         CoinGain = 1;
         CoinAmountP1 = 50;
-        CoinAmountP2 = 50;
+        CoinAmountP2 = 60;
         WhoTurn = 0;
         CoinGain = 1;
     }

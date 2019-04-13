@@ -12,8 +12,8 @@ public class SpawnCards : MonoBehaviour
     public static List<GameObject> CardsP1;
     public static List<GameObject> CardsP2;
 
-    bool p1nodeck = true;
-    bool p2nodeck = true;
+    static bool p1nodeck = true;
+    static bool p2nodeck = true;
     GameObject g;
     Vector3 spawnpos;
     int rand;

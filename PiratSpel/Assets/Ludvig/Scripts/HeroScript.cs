@@ -20,8 +20,8 @@ public class HeroScript : MonoBehaviour
     
     void Start()
     {
-        Hero1Health = 25;
-        Hero2Health = 25;
+        Hero1Health = 40;
+        Hero2Health = 40;
         EndingCamera.enabled = false;
     }
 
@@ -46,8 +46,8 @@ public class HeroScript : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             //byt namn med scenen vi kommer spela i så retartar man spelet om vis tid
-            Hero1Health = 20;
-            Hero2Health = 20;
+            Hero1Health = 40;
+            Hero2Health = 40;
             RestartingGame = 0;
         }
     }
@@ -58,8 +58,17 @@ public class HeroScript : MonoBehaviour
 
     void Update()
     {
-        P1Text.text = "" + Hero1Health;
-        P2Text.text = "" + Hero2Health;
+        if(TurnBased.Player1Turn)
+        {
+            P1Text.text = "" + Hero1Health;
+            P2Text.text = "" + Hero2Health;
+        }
+        else
+        {
+            P1Text.text = "" + Hero1Health;
+            P2Text.text = "" + Hero2Health;
+        }
+      
         if (Hero1Health <= 0 || Hero2Health <= 0)
         {
             SceneManager.LoadScene("Restart");

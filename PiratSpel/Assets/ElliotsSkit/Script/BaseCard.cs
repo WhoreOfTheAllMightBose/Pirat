@@ -10,7 +10,9 @@ public class BaseCard : MonoBehaviour
     protected int _Attack; //bas attack
     protected int _Hp; // bas hp
     public int _Cost; //bas kostnad
-    protected bool isPlayer1; // if this card is for player 1
+    protected bool _IsPlayer1; // if this card is for player 1
+    protected static bool _P1HasTaunt;
+    protected static bool _P2HasTaunt;
 
     bool hasAttackt; // om kortet har redan attackerat(så det bara kan attackera en gng)
     bool playOnce = true; //ifall du har lagt ut kortet ska den inte kunna anfalla och ska spela spawn ljudet
@@ -25,11 +27,11 @@ public class BaseCard : MonoBehaviour
         audioS = gameObject.AddComponent<AudioSource>(); // så kortet får en egen audiosource
         if (!TurnBased.Player1Turn) // ifall det inte är spelare1 runda ska kortet inte tillhöra spelare 1
         {
-            isPlayer1 = false;
+            _IsPlayer1 = false;
         }
         else// ifall det inte är spelare2 runda ska kortet inte tillhöra spelare 2
         {
-            isPlayer1 = true;
+            _IsPlayer1 = true;
         }
     }
 
@@ -45,7 +47,7 @@ public class BaseCard : MonoBehaviour
         {
             if (TurnBased.Player1Turn)  //om det är spelares 1 runda ska han inte se motståndarens kort i handen men jan ska se sina egna
             {
-                if (!isPlayer1)
+                if (!_IsPlayer1)
                 {
                     transform.GetChild(3).gameObject.SetActive(true);
                     transform.GetChild(2).gameObject.SetActive(false);
@@ -58,7 +60,7 @@ public class BaseCard : MonoBehaviour
             }
             else // om det är spelares 2 runda ska han inte se motståndarens kort i handen men jan ska se sina egna
             {
-                if (isPlayer1)
+                if (_IsPlayer1)
                 {
                     transform.GetChild(3).gameObject.SetActive(true);
                     transform.GetChild(2).gameObject.SetActive(false);
@@ -95,7 +97,7 @@ public class BaseCard : MonoBehaviour
             Vector3 mouse = Input.mousePosition; // få musens position
             Ray castPoint;
             RaycastHit hit; // om du träffar ett kort du ska välja
-            if (TurnBased.Player1Turn && isPlayer1) // så att bara spelare 1 kan anfalla spelares 2 "hero"
+            if (TurnBased.Player1Turn && _IsPlayer1 && !_P2HasTaunt) // så att bara spelare 1 kan anfalla spelares 2 "hero"  
             {
                 castPoint = Camera.main.ScreenPointToRay(mouse); // musens pos
 
@@ -109,7 +111,7 @@ public class BaseCard : MonoBehaviour
                     }
                 }
             }
-            if (!TurnBased.Player1Turn && !isPlayer1)// så att bara spelare 2 kan anfalla spelares 1 "hero"
+            else if (!TurnBased.Player1Turn && !_IsPlayer1 && !_P1HasTaunt)// så att bara spelare 2 kan anfalla spelares 1 "hero"  
             {
                 castPoint = Camera.main.ScreenPointToRay(mouse);// musens pos
 
